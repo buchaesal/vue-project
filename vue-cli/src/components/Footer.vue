@@ -1,11 +1,11 @@
 <template>
     <div>
-        <p>{{ myname }}</p>
-        <p>{{ area.city }}</p>
-        <button @click="changeName">Change</button>
+        {{ name }}
     </div>
 </template>
 <script>
+import { eventBus } from '../main';
+
 export default {
     props:{
         name:{
@@ -28,6 +28,7 @@ export default {
     changeName() {
         this.myname = 'Danbi';
         this.$emit('changeName',this.myname);
+        eventBus.changeName(this.myname);
     }
     }
 }

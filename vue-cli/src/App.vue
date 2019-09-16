@@ -1,9 +1,8 @@
 <template>
   <div>
-    <p>{{ name }}</p>
-<button @click="name='Sujin'">Change your name</button>
- <app-footer :name="name" @changeName="cng($event)"></app-footer>
- 
+<button>Show Header</button>
+<button>Show Servers</button>
+<button>Show Footer</button>
   </div>
 </template>
 
@@ -16,14 +15,11 @@ import ServerDetails from './components/ServerDetails.vue';
 export default {
   data: function(){
     return{
-      name:'Sujin'
+      selectedComponent: ''
       
     }
   },
   methods:{
-    cng(avg){
-      alert(avg);
-    }
   },
   components:{
     'app-header':Header,
