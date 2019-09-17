@@ -1,31 +1,31 @@
 <template>
-  <div>
-<button>Show Header</button>
-<button>Show Servers</button>
-<button>Show Footer</button>
+  <div class="container">
+    <app-new-quote @quoteAdded="newQuote"></app-new-quote>
+    <app-quote-grid :quotes="quotes"></app-quote-grid>
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue';
-import Footer from './components/Footer.vue';
-import Servers from './components/Servers.vue';
-import ServerDetails from './components/ServerDetails.vue';
+import QuoteGrid from './components/QuoteGrid.vue';
+import NewQuote from './components/NewQuote.vue';
 
-export default {
-  data: function(){
+export default{
+  data: function () {
     return{
-      selectedComponent: ''
-      
+      quotes: [
+        'Just a Quote to see something'
+      ],
+      maxQuotes: 10
     }
   },
   methods:{
+    newQuote(quote){
+      this.quotes.push(quote);
+    }
   },
-  components:{
-    'app-header':Header,
-    'app-servers':Servers,
-    'app-server-details':ServerDetails,
-    'app-footer':Footer
+  components: {
+    appQuoteGrid: QuoteGrid,
+    appNewQuote: NewQuote
   }
 }
 </script>
